@@ -24,6 +24,8 @@ if config_env() == :prod do
 
   config :tech_challenge_tradesquash, TechChallengeTradesquash.Repo,
     # ssl: true,
+    adapter: Ecto.Adapters.Postgres,
+    database: "",
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
     socket_options: maybe_ipv6
