@@ -1,12 +1,12 @@
 defmodule PhoenixTemplateWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :insta_clone
+  use Phoenix.Endpoint, otp_app: :phoenix_template
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_insta_clone_key",
+    key: "_phoenix_template_key",
     signing_salt: "baOPB3Hv"
   ]
 
@@ -18,7 +18,7 @@ defmodule PhoenixTemplateWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :insta_clone,
+    from: :phoenix_template,
     gzip: false,
     only: ~w(assets fonts images favicon.ico robots.txt)
 
@@ -28,7 +28,7 @@ defmodule PhoenixTemplateWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :insta_clone
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :phoenix_template
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,

@@ -7,24 +7,26 @@
 # General application configuration
 import Config
 
-config :insta_clone,
+config :phoenix_template,
   ecto_repos: [PhoenixTemplate.Repo]
 
 # Configures the endpoint
-config :insta_clone, PhoenixTemplateWeb.Endpoint,
+config :phoenix_template, PhoenixTemplateWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: PhoenixTemplateWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: PhoenixTemplate.PubSub,
   live_view: [signing_salt: "F+x3+zVT"]
 
-config :tailwind, version: "3.1.8", default: [
-  args: ~w(
+config :tailwind,
+  version: "3.1.8",
+  default: [
+    args: ~w(
     --config=tailwind.config.js
     --input=css/app.css
     --output=../priv/static/assets/app.css
   ),
-  cd: Path.expand("../assets", __DIR__)
-]
+    cd: Path.expand("../assets", __DIR__)
+  ]
 
 # Configures the mailer
 #
@@ -33,7 +35,7 @@ config :tailwind, version: "3.1.8", default: [
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :insta_clone, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Local
+config :phoenix_template, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

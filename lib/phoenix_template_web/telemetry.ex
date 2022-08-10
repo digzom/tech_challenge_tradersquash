@@ -31,23 +31,23 @@ defmodule PhoenixTemplateWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("insta_clone.repo.query.total_time",
+      summary("phoenix_template.repo.query.total_time",
         unit: {:native, :millisecond},
         description: "The sum of the other measurements"
       ),
-      summary("insta_clone.repo.query.decode_time",
+      summary("phoenix_template.repo.query.decode_time",
         unit: {:native, :millisecond},
         description: "The time spent decoding the data received from the database"
       ),
-      summary("insta_clone.repo.query.query_time",
+      summary("phoenix_template.repo.query.query_time",
         unit: {:native, :millisecond},
         description: "The time spent executing the query"
       ),
-      summary("insta_clone.repo.query.queue_time",
+      summary("phoenix_template.repo.query.queue_time",
         unit: {:native, :millisecond},
         description: "The time spent waiting for a database connection"
       ),
-      summary("insta_clone.repo.query.idle_time",
+      summary("phoenix_template.repo.query.idle_time",
         unit: {:native, :millisecond},
         description:
           "The time the connection spent waiting before being checked out for the query"

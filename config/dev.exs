@@ -1,11 +1,12 @@
 import Config
 
 # Configure your database
-config :insta_clone, PhoenixTemplate.Repo,
-  username: "insta_admin",
-  password: "insta",
+config :phoenix_template, PhoenixTemplate.Repo,
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost",
-  database: "insta_clone_dev",
+  database: "phoenix_template_dev",
+  stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -15,7 +16,7 @@ config :insta_clone, PhoenixTemplate.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :insta_clone, PhoenixTemplateWeb.Endpoint,
+config :phoenix_template, PhoenixTemplateWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
@@ -55,13 +56,13 @@ config :insta_clone, PhoenixTemplateWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :insta_clone, PhoenixTemplateWeb.Endpoint,
+config :phoenix_template, PhoenixTemplateWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/insta_clone_web/(live|views)/.*(ex)$",
-      ~r"lib/insta_clone_web/templates/.*(eex)$"
+      ~r"lib/phoenix_template_web/(live|views)/.*(ex)$",
+      ~r"lib/phoenix_template_web/templates/.*(eex)$"
     ]
   ]
 

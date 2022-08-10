@@ -20,5 +20,5 @@ defmodule PhoenixTemplateWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :insta_clone
+  use Gettext, otp_app: :phoenix_template
 end

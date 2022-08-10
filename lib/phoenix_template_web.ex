@@ -30,7 +30,7 @@ defmodule PhoenixTemplateWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/insta_clone_web/templates",
+        root: "lib/phoenix_template_web/templates",
         namespace: PhoenixTemplateWeb
 
       # Import convenience functions from controllers

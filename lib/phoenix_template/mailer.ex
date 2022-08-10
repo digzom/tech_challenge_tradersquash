@@ -1,3 +1,3 @@
 defmodule PhoenixTemplate.Mailer do
-  use Swoosh.Mailer, otp_app: :insta_clone
+  use Swoosh.Mailer, otp_app: :phoenix_template
 end
