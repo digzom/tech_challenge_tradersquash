@@ -2,6 +2,12 @@
   <div class="flex border-red-400 border-solid border-2">
     <h1 class="text-3xl font-bold text-red-900">Tudo funcionando!</h1>
   </div>
+<div x-data="{ open: false }">
+    <button x-on:click="open = ! open">Expands</button>
+    <div x-show="open" x-transition>
+        Content...
+    </div>
+</div>
   
 </section>
 
