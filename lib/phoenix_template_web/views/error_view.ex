@@ -1,5 +1,5 @@
-defmodule PhoenixTemplateWeb.ErrorView do
-  use PhoenixTemplateWeb, :view
+defmodule TechChallengeTradesquashWeb.ErrorView do
+  use TechChallengeTradesquashWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

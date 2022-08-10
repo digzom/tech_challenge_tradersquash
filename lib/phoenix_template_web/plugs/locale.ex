@@ -1,4 +1,4 @@
-defmodule PhoenixTemplateWeb.Plugs.Locale do
+defmodule TechChallengeTradesquashWeb.Plugs.Locale do
   import Plug.Conn
 
   @locales ["en", "fr", "de"]

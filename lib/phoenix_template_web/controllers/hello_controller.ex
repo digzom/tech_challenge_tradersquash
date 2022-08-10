@@ -1,5 +1,5 @@
-defmodule PhoenixTemplateWeb.HelloController do
-  use PhoenixTemplateWeb, :controller
+defmodule TechChallengeTradesquashWeb.HelloController do
+  use TechChallengeTradesquashWeb, :controller
 
   # action
   def index(conn, _params) do

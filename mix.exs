@@ -1,9 +1,9 @@
-defmodule PhoenixTemplate.MixProject do
+defmodule TechChallengeTradesquash.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenix_template,
+      app: :tech_challenge_tradesquash,
       version: "0.1.0",
       elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -18,7 +18,7 @@ defmodule PhoenixTemplate.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {PhoenixTemplate.Application, []},
+      mod: {TechChallengeTradesquash.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

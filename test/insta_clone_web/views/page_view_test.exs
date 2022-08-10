@@ -1,3 +1,3 @@
-defmodule PhoenixTemplateWeb.PageViewTest do
-  use PhoenixTemplateWeb.ConnCase, async: true
+defmodule TechChallengeTradesquashWeb.PageViewTest do
+  use TechChallengeTradesquashWeb.ConnCase, async: true
 end

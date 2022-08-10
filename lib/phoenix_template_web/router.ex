@@ -1,21 +1,21 @@
-defmodule PhoenixTemplateWeb.Router do
-  use PhoenixTemplateWeb, :router
+defmodule TechChallengeTradesquashWeb.Router do
+  use TechChallengeTradesquashWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {PhoenixTemplateWeb.LayoutView, :root}
+    plug :put_root_layout, {TechChallengeTradesquashWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug PhoenixTemplateWeb.Plugs.Locale, "en"
+    plug TechChallengeTradesquashWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhoenixTemplateWeb do
+  scope "/", TechChallengeTradesquashWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -24,7 +24,7 @@ defmodule PhoenixTemplateWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PhoenixTemplateWeb do
+  # scope "/api", TechChallengeTradesquashWeb do
   #   pipe_through :api
   # end
 
@@ -41,7 +41,7 @@ defmodule PhoenixTemplateWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: PhoenixTemplateWeb.Telemetry
+      live_dashboard "/dashboard", metrics: TechChallengeTradesquashWeb.Telemetry
     end
   end
 

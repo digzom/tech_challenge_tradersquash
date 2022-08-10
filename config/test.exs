@@ -5,23 +5,23 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :phoenix_template, PhoenixTemplate.Repo,
+config :tech_challenge_tradesquash, TechChallengeTradesquash.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "phoenix_template_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "tech_challenge_tradesquash_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :phoenix_template, PhoenixTemplateWeb.Endpoint,
+config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "HqHj5q8kYTuOg79kplrZFuuY1Ys7QMtCqcY0exq8/SpwTd+HY8VEMv7xlIcRpcjO",
   server: false
 
 # In test we don't send emails.
-config :phoenix_template, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Test
+config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn

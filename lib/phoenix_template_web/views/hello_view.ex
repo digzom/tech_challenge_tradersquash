@@ -1,3 +1,3 @@
-defmodule PhoenixTemplateWeb.HelloView do
-  use PhoenixTemplateWeb, :view
+defmodule TechChallengeTradesquashWeb.HelloView do
+  use TechChallengeTradesquashWeb, :view
 end

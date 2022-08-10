@@ -7,14 +7,14 @@
 # General application configuration
 import Config
 
-config :phoenix_template,
-  ecto_repos: [PhoenixTemplate.Repo]
+config :tech_challenge_tradesquash,
+  ecto_repos: [TechChallengeTradesquash.Repo]
 
 # Configures the endpoint
-config :phoenix_template, PhoenixTemplateWeb.Endpoint,
+config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: PhoenixTemplateWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: PhoenixTemplate.PubSub,
+  render_errors: [view: TechChallengeTradesquashWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: TechChallengeTradesquash.PubSub,
   live_view: [signing_salt: "F+x3+zVT"]
 
 config :tailwind,
@@ -35,7 +35,7 @@ config :tailwind,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :phoenix_template, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Local
+config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer, adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

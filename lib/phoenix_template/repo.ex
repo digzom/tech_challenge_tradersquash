@@ -1,5 +1,5 @@
-defmodule PhoenixTemplate.Repo do
+defmodule TechChallengeTradesquash.Repo do
   use Ecto.Repo,
-    otp_app: :phoenix_template,
+    otp_app: :tech_challenge_tradesquash,
     adapter: Ecto.Adapters.Postgres
 end

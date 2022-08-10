@@ -1,5 +1,5 @@
-defmodule PhoenixTemplateWeb.PageControllerTest do
-  use PhoenixTemplateWeb.ConnCase
+defmodule TechChallengeTradesquashWeb.PageControllerTest do
+  use TechChallengeTradesquashWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

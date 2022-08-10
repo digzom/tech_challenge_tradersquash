@@ -1,4 +1,4 @@
-defmodule PhoenixTemplate.Application do
+defmodule TechChallengeTradesquash.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule PhoenixTemplate.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      PhoenixTemplate.Repo,
+      TechChallengeTradesquash.Repo,
       # Start the Telemetry supervisor
-      PhoenixTemplateWeb.Telemetry,
+      TechChallengeTradesquashWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: PhoenixTemplate.PubSub},
+      {Phoenix.PubSub, name: TechChallengeTradesquash.PubSub},
       # Start the Endpoint (http/https)
-      PhoenixTemplateWeb.Endpoint
-      # Start a worker by calling: PhoenixTemplate.Worker.start_link(arg)
-      # {PhoenixTemplate.Worker, arg}
+      TechChallengeTradesquashWeb.Endpoint
+      # Start a worker by calling: TechChallengeTradesquash.Worker.start_link(arg)
+      # {TechChallengeTradesquash.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: PhoenixTemplate.Supervisor]
+    opts = [strategy: :one_for_one, name: TechChallengeTradesquash.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule PhoenixTemplate.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    PhoenixTemplateWeb.Endpoint.config_change(changed, removed)
+    TechChallengeTradesquashWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
