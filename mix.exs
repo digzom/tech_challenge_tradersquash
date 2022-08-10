@@ -46,6 +46,7 @@ defmodule TechChallengeTradesquash.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:distillery, "~> 2.1"},
       {:timex, "~> 3.0"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
