@@ -55,7 +55,6 @@ defmodule InstaCloneWeb.Endpoint do
     IO.puts("""
       Verb: #{inspect(conn.method)}
       Host: #{inspect(conn.host)}
-      Headers: #{inspect(conn.req_headers)}
     """)
 
     conn
