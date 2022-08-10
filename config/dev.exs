@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :tech_challenge_tradesquash, TechChallengeTradesquash.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "challenge_admin",
+  password: "challenge",
   hostname: "localhost",
   database: "tech_challenge_tradesquash_dev",
   stacktrace: true,
