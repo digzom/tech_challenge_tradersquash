@@ -10,7 +10,12 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  http: [port: {:system, "PORT"}],
+  url: [host: "localhost", port: {:system, "PORT"}],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  root: ".",
+  version: Application.spec(:tech_challenge_tradersquash, :vsn)
 
 # Do not print debug messages in production
 config :logger, level: :info
