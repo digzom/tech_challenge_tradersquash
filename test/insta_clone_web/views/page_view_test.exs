@@ -1,3 +1,3 @@
-defmodule InstaCloneWeb.PageViewTest do
-  use InstaCloneWeb.ConnCase, async: true
+defmodule PhoenixTemplateWeb.PageViewTest do
+  use PhoenixTemplateWeb.ConnCase, async: true
 end

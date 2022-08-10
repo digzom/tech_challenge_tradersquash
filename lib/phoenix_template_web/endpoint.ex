@@ -1,4 +1,4 @@
-defmodule InstaCloneWeb.Endpoint do
+defmodule PhoenixTemplateWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :insta_clone
 
   # The session will be stored in the cookie and signed,
@@ -49,7 +49,7 @@ defmodule InstaCloneWeb.Endpoint do
   # plug functions are plugged by passing the function name
   # as an atom
   plug :introspect
-  plug InstaCloneWeb.Router
+  plug PhoenixTemplateWeb.Router
 
   def introspect(conn, _opts) do
     IO.puts("""

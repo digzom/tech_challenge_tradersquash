@@ -1,5 +1,5 @@
-defmodule InstaCloneWeb.LayoutViewTest do
-  use InstaCloneWeb.ConnCase, async: true
+defmodule PhoenixTemplateWeb.LayoutViewTest do
+  use PhoenixTemplateWeb.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
   # use functions such as safe_to_string() to convert the helper

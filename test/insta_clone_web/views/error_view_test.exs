@@ -1,14 +1,15 @@
-defmodule InstaCloneWeb.ErrorViewTest do
-  use InstaCloneWeb.ConnCase, async: true
+defmodule PhoenixTemplateWeb.ErrorViewTest do
+  use PhoenixTemplateWeb.ConnCase, async: true
 
   # Bring render/3 and render_to_string/3 for testing custom views
   import Phoenix.View
 
   test "renders 404.html" do
-    assert render_to_string(InstaCloneWeb.ErrorView, "404.html", []) == "Not Found"
+    assert render_to_string(PhoenixTemplateWeb.ErrorView, "404.html", []) == "Not Found"
   end
 
   test "renders 500.html" do
-    assert render_to_string(InstaCloneWeb.ErrorView, "500.html", []) == "Internal Server Error"
+    assert render_to_string(PhoenixTemplateWeb.ErrorView, "500.html", []) ==
+             "Internal Server Error"
   end
 end

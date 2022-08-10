@@ -1,2 +1,2 @@
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(InstaClone.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(PhoenixTemplate.Repo, :manual)

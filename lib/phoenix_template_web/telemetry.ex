@@ -1,4 +1,4 @@
-defmodule InstaCloneWeb.Telemetry do
+defmodule PhoenixTemplateWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -65,7 +65,7 @@ defmodule InstaCloneWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {InstaCloneWeb, :count_users, []}
+      # {PhoenixTemplateWeb, :count_users, []}
     ]
   end
 end

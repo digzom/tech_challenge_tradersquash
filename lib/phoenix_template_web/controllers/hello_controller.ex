@@ -1,5 +1,5 @@
-defmodule InstaCloneWeb.HelloController do
-  use InstaCloneWeb, :controller
+defmodule PhoenixTemplateWeb.HelloController do
+  use PhoenixTemplateWeb, :controller
 
   # action
   def index(conn, _params) do

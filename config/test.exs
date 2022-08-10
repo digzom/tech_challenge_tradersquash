@@ -5,7 +5,7 @@ import Config
 # The MIX_TEST_PARTITION environment variable can be used
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
-config :insta_clone, InstaClone.Repo,
+config :insta_clone, PhoenixTemplate.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
@@ -15,13 +15,13 @@ config :insta_clone, InstaClone.Repo,
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :insta_clone, InstaCloneWeb.Endpoint,
+config :insta_clone, PhoenixTemplateWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "HqHj5q8kYTuOg79kplrZFuuY1Ys7QMtCqcY0exq8/SpwTd+HY8VEMv7xlIcRpcjO",
   server: false
 
 # In test we don't send emails.
-config :insta_clone, InstaClone.Mailer, adapter: Swoosh.Adapters.Test
+config :insta_clone, PhoenixTemplate.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn

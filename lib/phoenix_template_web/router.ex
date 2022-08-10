@@ -1,21 +1,21 @@
-defmodule InstaCloneWeb.Router do
-  use InstaCloneWeb, :router
+defmodule PhoenixTemplateWeb.Router do
+  use PhoenixTemplateWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
-    plug :put_root_layout, {InstaCloneWeb.LayoutView, :root}
+    plug :put_root_layout, {PhoenixTemplateWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug InstaCloneWeb.Plugs.Locale, "en"
+    plug PhoenixTemplateWeb.Plugs.Locale, "en"
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/", InstaCloneWeb do
+  scope "/", PhoenixTemplateWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -24,7 +24,7 @@ defmodule InstaCloneWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", InstaCloneWeb do
+  # scope "/api", PhoenixTemplateWeb do
   #   pipe_through :api
   # end
 
@@ -41,7 +41,7 @@ defmodule InstaCloneWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard", metrics: InstaCloneWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PhoenixTemplateWeb.Telemetry
     end
   end
 

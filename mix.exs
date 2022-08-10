@@ -1,4 +1,4 @@
-defmodule InstaClone.MixProject do
+defmodule PhoenixTemplate.MixProject do
   use Mix.Project
 
   def project do
@@ -18,7 +18,7 @@ defmodule InstaClone.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {InstaClone.Application, []},
+      mod: {PhoenixTemplate.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

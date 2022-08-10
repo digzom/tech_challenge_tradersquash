@@ -1,12 +1,12 @@
-defmodule InstaCloneWeb do
+defmodule PhoenixTemplateWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use InstaCloneWeb, :controller
-      use InstaCloneWeb, :view
+      use PhoenixTemplateWeb, :controller
+      use PhoenixTemplateWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule InstaCloneWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: InstaCloneWeb
+      use Phoenix.Controller, namespace: PhoenixTemplateWeb
 
       import Plug.Conn
-      import InstaCloneWeb.Gettext
-      alias InstaCloneWeb.Router.Helpers, as: Routes
+      import PhoenixTemplateWeb.Gettext
+      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule InstaCloneWeb do
     quote do
       use Phoenix.View,
         root: "lib/insta_clone_web/templates",
-        namespace: InstaCloneWeb
+        namespace: PhoenixTemplateWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller,
@@ -45,7 +45,7 @@ defmodule InstaCloneWeb do
   def live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {InstaCloneWeb.LayoutView, "live.html"}
+        layout: {PhoenixTemplateWeb.LayoutView, "live.html"}
 
       unquote(view_helpers())
     end
@@ -80,7 +80,7 @@ defmodule InstaCloneWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import InstaCloneWeb.Gettext
+      import PhoenixTemplateWeb.Gettext
     end
   end
 
@@ -95,9 +95,9 @@ defmodule InstaCloneWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
-      import InstaCloneWeb.ErrorHelpers
-      import InstaCloneWeb.Gettext
-      alias InstaCloneWeb.Router.Helpers, as: Routes
+      import PhoenixTemplateWeb.ErrorHelpers
+      import PhoenixTemplateWeb.Gettext
+      alias PhoenixTemplateWeb.Router.Helpers, as: Routes
     end
   end
 

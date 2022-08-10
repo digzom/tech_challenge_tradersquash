@@ -1,5 +1,5 @@
-defmodule InstaCloneWeb.ErrorView do
-  use InstaCloneWeb, :view
+defmodule PhoenixTemplateWeb.ErrorView do
+  use PhoenixTemplateWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

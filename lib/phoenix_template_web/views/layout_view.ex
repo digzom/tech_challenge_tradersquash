@@ -1,5 +1,5 @@
-defmodule InstaCloneWeb.LayoutView do
-  use InstaCloneWeb, :view
+defmodule PhoenixTemplateWeb.LayoutView do
+  use PhoenixTemplateWeb, :view
 
   # Phoenix LiveDashboard is available only in development by default,
   # so we instruct Elixir to not warn if the dashboard route is missing.

@@ -1,4 +1,4 @@
-# InstaClone
+# Phoenix 1.6 Full-Stack Template
 
 To start your Phoenix server:
 

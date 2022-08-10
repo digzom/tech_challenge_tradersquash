@@ -1,5 +1,5 @@
-defmodule InstaCloneWeb.PageControllerTest do
-  use InstaCloneWeb.ConnCase
+defmodule PhoenixTemplateWeb.PageControllerTest do
+  use PhoenixTemplateWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

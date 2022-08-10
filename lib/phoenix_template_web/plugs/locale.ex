@@ -1,4 +1,4 @@
-defmodule InstaCloneWeb.Plugs.Locale do
+defmodule PhoenixTemplateWeb.Plugs.Locale do
   import Plug.Conn
 
   @locales ["en", "fr", "de"]

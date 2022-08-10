@@ -1,4 +1,4 @@
-defmodule InstaClone.Application do
+defmodule PhoenixTemplate.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -9,20 +9,20 @@ defmodule InstaClone.Application do
   def start(_type, _args) do
     children = [
       # Start the Ecto repository
-      InstaClone.Repo,
+      PhoenixTemplate.Repo,
       # Start the Telemetry supervisor
-      InstaCloneWeb.Telemetry,
+      PhoenixTemplateWeb.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: InstaClone.PubSub},
+      {Phoenix.PubSub, name: PhoenixTemplate.PubSub},
       # Start the Endpoint (http/https)
-      InstaCloneWeb.Endpoint
-      # Start a worker by calling: InstaClone.Worker.start_link(arg)
-      # {InstaClone.Worker, arg}
+      PhoenixTemplateWeb.Endpoint
+      # Start a worker by calling: PhoenixTemplate.Worker.start_link(arg)
+      # {PhoenixTemplate.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: InstaClone.Supervisor]
+    opts = [strategy: :one_for_one, name: PhoenixTemplate.Supervisor]
     Supervisor.start_link(children, opts)
   end
 
@@ -30,7 +30,7 @@ defmodule InstaClone.Application do
   # whenever the application is updated.
   @impl true
   def config_change(changed, _new, removed) do
-    InstaCloneWeb.Endpoint.config_change(changed, removed)
+    PhoenixTemplateWeb.Endpoint.config_change(changed, removed)
     :ok
   end
 end
