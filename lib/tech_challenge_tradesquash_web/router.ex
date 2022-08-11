@@ -18,9 +18,8 @@ defmodule TechChallengeTradesquashWeb.Router do
   scope "/", TechChallengeTradesquashWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
+    get "/", HomeController, :index
+    # get "/hello/:messenger", HelloController, :show
   end
 
   # Other scopes may use custom stacks.

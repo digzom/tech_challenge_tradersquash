@@ -1,4 +1,4 @@
-defmodule TechChallengeTradesquashWeb.HelloController do
+defmodule TechChallengeTradesquashWeb.HomeController do
   use TechChallengeTradesquashWeb, :controller
 
   # action
