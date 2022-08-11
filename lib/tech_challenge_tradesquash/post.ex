@@ -4,7 +4,7 @@ defmodule TechChallengeTradesquash.Post do
   import Ecto.Changeset
 
   @primary_key {:id, :id, autogenerate: true}
-  @foreign_key_type :id
+  @foreign_key_type Ecto.UUID
 
   schema "posts" do
     field :title, :string

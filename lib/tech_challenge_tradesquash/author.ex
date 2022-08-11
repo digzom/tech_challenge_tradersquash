@@ -5,7 +5,6 @@ defmodule TechChallengeTradesquash.Author do
   import Ecto.Changeset
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
-  @foreign_key_type :string
 
   schema "author" do
     field :name, :string
