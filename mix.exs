@@ -47,7 +47,9 @@ defmodule TechChallengeTradesquash.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:timex, "~> 3.0"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:argon2_elixir, "~> 3.0"}
     ]
   end
 

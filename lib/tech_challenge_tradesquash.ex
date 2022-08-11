@@ -1,9 +1,6 @@
 defmodule TechChallengeTradesquash do
-  @moduledoc """
-  TechChallengeTradesquash keeps the contexts that define your domain
-  and business logic.
+  @moduledoc false
+  alias TechChallengeTradesquash.Author
 
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
-  """
+  defdelegate create_author(author), to: Author.Create, as: :call
 end
