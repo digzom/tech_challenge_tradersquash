@@ -6,8 +6,8 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :tech_challenge_tradesquash, TechChallengeTradesquash.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "challenge_admin",
+  password: "challenge",
   hostname: "localhost",
   database: "tech_challenge_tradesquash_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,

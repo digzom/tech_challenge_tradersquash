@@ -1,4 +1,4 @@
-defmodule TechChallengeTradesquashWeb.PageController do
+defmodule TechChallengeTradesquashWeb.NewPostController do
   use TechChallengeTradesquashWeb, :controller
 
   def index(conn, _params) do
