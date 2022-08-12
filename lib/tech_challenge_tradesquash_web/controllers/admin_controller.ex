@@ -1,4 +1,4 @@
-defmodule TechChallengeTradesquashWeb.HomeController do
+defmodule TechChallengeTradesquashWeb.AdminController do
   use TechChallengeTradesquashWeb, :controller
 
   def index(conn, _params) do
