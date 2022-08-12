@@ -10,6 +10,7 @@ defmodule TechChallengeTradesquash.Post do
     field :title, :string
     field :slug, :string
     field :category, :string
+    field :content, :string
     field :meta, :string
     belongs_to :author, TechChallengeTradesquash.Author
 
@@ -22,8 +23,8 @@ defmodule TechChallengeTradesquash.Post do
     |> apply_action(:insert)
   end
 
-  @fields [:title, :slug, :category, :meta, :author_id]
-  @required_fields [:title, :slug, :category, :author_id]
+  @fields [:title, :slug, :category, :meta, :content, :author_id]
+  @required_fields [:title, :slug, :category, :author_id, :content]
 
   @doc false
   def changeset(attrs) do
