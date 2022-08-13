@@ -2,7 +2,6 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
       <h2 class="text-2xl font-bold text-gray-900">Posts</h2>
-
       <div class="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
         <%= for post <- @posts do %>
           <div class="group relative">
@@ -15,9 +14,21 @@
                 />
               <% end %>
             </div>
-            <p class="text-base font-semibold text-gray-900">
+            <h3 class="mt-3 text-xs text-blue-500 uppercase">
+              <%= post.category %>
+            </h3>
+            <p class="text-lg font-semibold text-gray-900">
               <%= post.title %>
             </p>
+            <%= if post.author === nil do %>
+              <p class="text-sm text-gray-400">
+                Anonymous
+              </p>
+            <% else %>
+              <p class="text-sm text-gray-400">
+                <%= post.author.name %>
+              </p>
+            <% end %>
             <span><%= link("Edit", to: Routes.post_path(@conn, :edit, post)) %></span>
             <span>
               <%= link("Delete",

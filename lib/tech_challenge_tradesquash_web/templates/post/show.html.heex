@@ -1,21 +1,17 @@
-<h1>Show Post</h1>
-
-<ul>
-  <li>
-    <strong>Title:</strong>
+<div class="flex flex-col items-center max-w-5xl mx-auto">
+  <h1 class="text-3xl">
     <%= @post.title %>
-  </li>
+  </h1>
+  <article class="leading-8 text-lg">
+    <%= html_view(@post.body) %>
+  </article>
 
-  <li>
-    <strong>Body:</strong>
-    <%= @post.body %>
-  </li>
-</ul>
-<%= render("comment_form.html",
-  post: @post,
-  changeset: @changeset,
-  action: Routes.post_post_path(@conn, :add_comment, @post)
-) %>
-<%= render("comments.html", comments: @post.comments) %>
-<span><%= link("Edit", to: Routes.post_path(@conn, :edit, @post)) %></span> |
-<span><%= link("Back", to: Routes.post_path(@conn, :index)) %></span>
+  <%= render("comment_form.html",
+    post: @post,
+    changeset: @changeset,
+    action: Routes.post_post_path(@conn, :add_comment, @post)
+  ) %>
+  <%= render("comments.html", comments: @post.comments) %>
+  <span><%= link("Edit", to: Routes.post_path(@conn, :edit, @post)) %></span> |
+  <span><%= link("Back", to: Routes.post_path(@conn, :index)) %></span>
+</div>
