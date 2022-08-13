@@ -10,7 +10,7 @@ defmodule TechChallengeTradesquash.Posts do
     Repo.all(Post)
   end
 
-  def get_post!(id), do: Repo.get!(Post, id)
+  def get_post!(id), do: Repo.get!(Post, id) |> Repo.preload([:author])
 
   def create_post(attrs \\ %{}) do
     %Post{}

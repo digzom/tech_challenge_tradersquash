@@ -32,7 +32,7 @@ defmodule TechChallengeTradesquashWeb.PostController do
     post =
       id
       |> Posts.get_post!()
-      |> Repo.preload([:comments])
+      |> Repo.preload([:comments, :author])
 
     changeset = Comment.changeset(%Comment{}, %{})
     render(conn, "show.html", post: post, changeset: changeset)

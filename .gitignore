@@ -32,3 +32,4 @@ tech_challenge_tradesquash-*.tar
 npm-debug.log
 /assets/node_modules/
 
+node_modules
