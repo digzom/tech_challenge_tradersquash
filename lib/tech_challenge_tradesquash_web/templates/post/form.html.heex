@@ -1,0 +1,67 @@
+<div class="min-h-full flex flex-col items-center justify-center py-2 px-4 sm:px-6 lg:px-8">
+  <h1 class="text-3xl p-12 font-bold">New post</h1>
+  <.form let={f} for={@changeset} action={@action} class="w-full max-w-3xl">
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <%= if @changeset.action do %>
+          <div class="alert alert-danger">
+            <p>Oops, something went wrong! Please check the errors below.</p>
+          </div>
+        <% end %>
+
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
+          <%= label(f, :title) %>
+        </label>
+        <%= text_input(f, :title,
+          class:
+            "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        ) %>
+        <%= error_tag(f, :title) %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
+          <%= label(f, :category) %>
+        </label>
+        <%= text_input(f, :category,
+          class:
+            "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        ) %>
+        <%= error_tag(f, :category) %>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
+          <%= label(f, :body) %>
+        </label>
+        <%= textarea(f, :body,
+          rows: 15,
+          class:
+            "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+        ) %>
+        <%= error_tag(f, :body) %>
+      </div>
+    </div>
+    <div class="flex justify-between w-full">
+      <div class="shadow bg-gray-500 hover:bg-gray-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+        <%= link("Back", to: Routes.post_path(@conn, :index)) %>
+      </div>
+      <div class="shadow bg-indigo-500 hover:bg-indigo-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+        <%= submit("Save") %>
+      </div>
+    </div>
+  </.form>
+</div>

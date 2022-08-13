@@ -21,7 +21,10 @@ defmodule TechChallengeTradesquashWeb.Router do
     get "/", HomeController, :index
     get "/login", LoginController, :index
     get "/admin", AdminController, :index
-    get "/new", NewPostController, :index
+
+    resources "/posts", PostController do
+      post "/comment", PostController, :add_comment
+    end
   end
 
   # Other scopes may use custom stacks.

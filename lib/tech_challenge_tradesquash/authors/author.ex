@@ -1,12 +1,14 @@
-defmodule TechChallengeTradesquash.Author do
+defmodule TechChallengeTradesquash.Authors.Author do
   @moduledoc false
-  alias TechChallengeTradesquash.Post
   use Ecto.Schema
   import Ecto.Changeset
+  alias TechChallengeTradesquash.Posts.Post
 
+  @fields [:name, :email, :password, :password_hash]
+  @required_fields [:name, :email, :password]
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
-  schema "author" do
+  schema "authors" do
     field :name, :string
     field :email, :string
     field :password, :string, virtual: true
@@ -22,12 +24,11 @@ defmodule TechChallengeTradesquash.Author do
     |> apply_action(:insert)
   end
 
-  @fields [:name, :email, :password, :password_hash]
-
-  def changeset(attrs) do
-    %__MODULE__{}
+  def changeset(post \\ %__MODULE__{}, attrs) do
+    post
     |> cast(attrs, @fields)
     |> validate_length(:password, min: 4)
+    |> validate_required(@required_fields)
     |> put_pass_hash()
   end
 
