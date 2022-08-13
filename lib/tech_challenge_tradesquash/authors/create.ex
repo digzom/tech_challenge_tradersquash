@@ -1,6 +1,6 @@
-defmodule TechChallengeTradesquash.Author.Create do
+defmodule TechChallengeTradesquash.Authors.Create do
   @moduledoc false
-  alias TechChallengeTradesquash.{Repo, Author}
+  alias TechChallengeTradesquash.{Repo, Authors.Author}
 
   def call(author) do
     author

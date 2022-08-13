@@ -1,6 +1,6 @@
 defmodule TechChallengeTradesquash do
   @moduledoc false
-  alias TechChallengeTradesquash.Author
+  alias TechChallengeTradesquash.Authors
 
-  defdelegate create_author(author), to: Author.Create, as: :call
+  defdelegate create_author(author), to: Authors.Create, as: :call
 end

@@ -6,7 +6,6 @@ defmodule TechChallengeTradesquash.Repo.Migrations.CreatePosts do
       add(:title, :string, null: false)
       add(:body, :string, null: false)
       add(:category, :string, null: false)
-      add(:author_id, :uuid)
       add(:slug, :string)
 
       timestamps()
