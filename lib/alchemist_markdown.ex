@@ -1,4 +1,5 @@
 defmodule AlchemistMarkdown do
+  @moduledoc false
   def to_html(markdown \\ "", opts \\ [])
 
   def to_html(markdown, _opts) do
