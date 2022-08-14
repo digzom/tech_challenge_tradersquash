@@ -38,6 +38,12 @@ defmodule TechChallengeTradesquashWeb.PostController do
     render(conn, "show.html", post: post, changeset: changeset)
   end
 
+  def format_date(time) do
+    time
+    |> Timex.to_datetime("America/Sao_Paulo")
+    |> Calendar.strftime("%A %b. %d")
+  end
+
   def edit(conn, %{"id" => id}) do
     post = Posts.get_post!(id)
     changeset = Posts.change_post(post)

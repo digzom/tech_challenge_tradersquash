@@ -51,7 +51,8 @@ defmodule TechChallengeTradesquash.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:argon2_elixir, "~> 3.0"},
       {:earmark, "~> 1.4"},
-      {:html_sanitize_ex, "~> 1.4"}
+      {:html_sanitize_ex, "~> 1.4"},
+      {:guardian, "~> 2.2"}
     ]
   end
 

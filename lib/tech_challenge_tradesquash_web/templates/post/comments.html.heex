@@ -1,13 +1,14 @@
-<h3>Comments:</h3>
-<div class="comments">
-  <div class="comment header">
-    <div>Name</div>
-    <div>Content</div>
+<div class="w-full my-10">
+  <div class="border-solid">
+    <%= for comment <- @comments do %>
+      <div class="bg-white p-5 border-b-2 border-l-4 border-l-indigo-300 mb-4 rounded-md">
+        <p class="text-sm font-semibold"><%= comment.name %></p>
+        <p class="text-xs text-gray-500"><%= format_date(comment.inserted_at) %></p>
+        <br />
+        <div class="prose prose-h1:text-xl prose-h2:text-lg prose-h3:font-bold text-sm">
+          <%= html_view(comment.content) %>
+        </div>
+      </div>
+    <% end %>
   </div>
-  <%= for comment <- @comments do %>
-    <div class="comment">
-      <div><%= comment.name %></div>
-      <div><%= comment.content %></div>
-    </div>
-  <% end %>
 </div>

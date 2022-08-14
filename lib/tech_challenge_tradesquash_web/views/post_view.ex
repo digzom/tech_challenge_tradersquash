@@ -12,4 +12,10 @@ defmodule TechChallengeTradesquashWeb.PostView do
     |> Earmark.as_html!(%Options{escape: true})
     |> raw
   end
+
+  def format_date(time) do
+    time
+    |> Timex.to_datetime("America/Sao_Paulo")
+    |> Calendar.strftime("%A %b. %d")
+  end
 end

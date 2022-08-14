@@ -13,7 +13,11 @@ config :tech_challenge_tradesquash,
 # Configures the endpoint
 config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: TechChallengeTradesquashWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [
+    view: TechChallengeTradesquashWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: TechChallengeTradesquash.PubSub,
   live_view: [signing_salt: "F+x3+zVT"]
 
@@ -35,7 +39,8 @@ config :tailwind,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer, adapter: Swoosh.Adapters.Local
+config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer,
+  adapter: Swoosh.Adapters.Local
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
@@ -57,6 +62,10 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Auth.Guardian,
+  issuer: "tech_challenge_tradesquash",
+  secret_key: "RzFwNTKptdQARQWA/Hgc57tN3ncZ6tlK985Zr3uMg8oTHRqjqFfxjuvq7G9to1DZ"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
