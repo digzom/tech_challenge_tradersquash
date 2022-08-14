@@ -7,7 +7,8 @@ defmodule TechChallengeTradesquashWeb.PostController do
 
   def index(conn, _params) do
     posts = Posts.list_posts()
-    render(conn, "index.html", posts: posts)
+    post_list = Repo.preload(posts, [:author])
+    render(conn, "index.html", posts: post_list)
   end
 
   def new(conn, _params) do
@@ -31,10 +32,16 @@ defmodule TechChallengeTradesquashWeb.PostController do
     post =
       id
       |> Posts.get_post!()
-      |> Repo.preload([:comments])
+      |> Repo.preload([:comments, :author])
 
     changeset = Comment.changeset(%Comment{}, %{})
     render(conn, "show.html", post: post, changeset: changeset)
+  end
+
+  def format_date(time) do
+    time
+    |> Timex.to_datetime("America/Sao_Paulo")
+    |> Calendar.strftime("%A %b. %d")
   end
 
   def edit(conn, %{"id" => id}) do

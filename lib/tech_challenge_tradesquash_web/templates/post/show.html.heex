@@ -1,21 +1,33 @@
-<h1>Show Post</h1>
+<div class="flex flex-col max-w-6xl mx-auto px-10">
+  <main class="mb-5 bg-white p-16 rounded-md">
+    <%= if @post.author === nil do %>
+      <p class="text-base font-semibold">Anônimo</p>
+      <p class="text-sm text-gray-500"><%= format_date(@post.inserted_at) %></p>
+    <% else %>
+      <div>
+        <p class="text-base font-semibold"><%= @post.author.name %></p>
+        <p class="text-sm text-gray-500"><%= format_date(@post.inserted_at) %></p>
+      </div>
+    <% end %>
+    <h1 class="md:text-3xl lg:text-4xl pb-10 pt-4 leading-tight font-extrabold">
+      <%= @post.title %>
+    </h1>
+    <article class="prose max-w-full leading-6 prose-ol:leading-5 prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg">
+      <%= html_view(@post.body) %>
+    </article>
+  </main>
+  <section class="mb-10">
+    <span class="shadow bg-gray-500 hover:bg-indigo-500 cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
+      <%= link("Back", to: Routes.post_path(@conn, :index)) %>
+    </span>
+  </section>
+  <section class="border-solid border-t-2 py-6">
+    <%= render("comment_form.html",
+      post: @post,
+      changeset: @changeset,
+      action: Routes.post_post_path(@conn, :add_comment, @post)
+    ) %>
 
-<ul>
-  <li>
-    <strong>Title:</strong>
-    <%= @post.title %>
-  </li>
-
-  <li>
-    <strong>Body:</strong>
-    <%= @post.body %>
-  </li>
-</ul>
-<%= render("comment_form.html",
-  post: @post,
-  changeset: @changeset,
-  action: Routes.post_post_path(@conn, :add_comment, @post)
-) %>
-<%= render("comments.html", comments: @post.comments) %>
-<span><%= link("Edit", to: Routes.post_path(@conn, :edit, @post)) %></span> |
-<span><%= link("Back", to: Routes.post_path(@conn, :index)) %></span>
+    <%= render("comments.html", comments: @post.comments) %>
+  </section>
+</div>
