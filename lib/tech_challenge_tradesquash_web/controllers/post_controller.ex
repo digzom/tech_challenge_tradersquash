@@ -19,7 +19,6 @@ defmodule TechChallengeTradesquashWeb.PostController do
 
   def create(conn, %{"post" => post_params}) do
     current_account = Authentication.get_current_account(conn)
-    IO.inspect(post_params)
 
     case Posts.create_post(post_params, current_account.id) do
       {:ok, post} ->
