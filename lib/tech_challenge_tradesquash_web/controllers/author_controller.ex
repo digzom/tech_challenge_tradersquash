@@ -15,7 +15,6 @@ defmodule TechChallengeTradesquashWeb.AuthorController do
 
   def new(conn, _params) do
     changeset = Authors.change_author(%Author{})
-    IO.inspect(changeset)
     render(conn, "new.html", changeset: changeset)
   end
 

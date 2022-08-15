@@ -2,6 +2,6 @@ defmodule TechChallengeTradesquashWeb.HomeController do
   use TechChallengeTradesquashWeb, :controller
 
   def index(conn, _params) do
-    redirect(conn, to: "/posts")
+    render(conn, "<div>ok</div>")
   end
 end

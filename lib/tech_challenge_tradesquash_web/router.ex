@@ -15,20 +15,33 @@ defmodule TechChallengeTradesquashWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :guardian do
+    plug TechChallengeTradesquashWeb.Authentication.Pipeline
+  end
+
+  pipeline :browser_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   scope "/", TechChallengeTradesquashWeb do
-    pipe_through :browser
+    pipe_through [:browser, :guardian, :browser_auth]
 
-    get "/", HomeController, :index
-    get "/author", AuthorController, :index
-
-    get "/register", AuthorController, :new
-    post "/register", AuthorController, :create
-
-    resources "/register", AuthorController
+    # get "/", HomeController, :index
+    resources "/profile", ProfileController, only: [:show], singleton: true
 
     resources "/posts", PostController do
       post "/comment", PostController, :add_comment
     end
+  end
+
+  scope "/", TechChallengeTradesquashWeb do
+    pipe_through [:browser, :guardian]
+
+    get "/register", RegistrationController, :new
+    post "/register", RegistrationController, :create
+
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
   end
 
   # Other scopes may use custom stacks.

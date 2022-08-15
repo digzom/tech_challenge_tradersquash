@@ -1,6 +1,10 @@
 defmodule TechChallengeTradesquashWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :tech_challenge_tradesquash
 
+  if Application.get_env(:tech_challenge_tradesquash, :sql_sandbox) do
+    plug(Phoenix.Ecto.SQL.Sandbox)
+  end
+
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.

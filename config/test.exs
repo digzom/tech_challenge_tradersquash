@@ -18,7 +18,14 @@ config :tech_challenge_tradesquash, TechChallengeTradesquash.Repo,
 config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "HqHj5q8kYTuOg79kplrZFuuY1Ys7QMtCqcY0exq8/SpwTd+HY8VEMv7xlIcRpcjO",
-  server: false
+  server: true
+
+config :tech_challenge_tradesquash, :sql_sandbox, true
+
+config :wallaby,
+  chromedriver: [
+    headless: false
+  ]
 
 # In test we don't send emails.
 config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer, adapter: Swoosh.Adapters.Test
