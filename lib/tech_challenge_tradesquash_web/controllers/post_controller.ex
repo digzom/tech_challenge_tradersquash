@@ -4,10 +4,11 @@ defmodule TechChallengeTradesquashWeb.PostController do
   alias TechChallengeTradesquash.{Repo, Posts}
   alias TechChallengeTradesquash.Posts.Post
   alias TechChallengeTradesquash.Comments.Comment
+  alias TechChallengeTradesquashWeb.Authentication
 
   def index(conn, _params) do
     posts = Posts.list_posts()
-    post_list = Repo.preload(posts, [:author])
+    post_list = Repo.preload(posts, [:account])
     render(conn, "index.html", posts: post_list)
   end
 
@@ -17,7 +18,9 @@ defmodule TechChallengeTradesquashWeb.PostController do
   end
 
   def create(conn, %{"post" => post_params}) do
-    case Posts.create_post(post_params) do
+    current_account = Authentication.get_current_account(conn)
+
+    case Posts.create_post(post_params, current_account.id) do
       {:ok, post} ->
         conn
         |> put_flash(:info, "Post created successfully.")
@@ -32,7 +35,7 @@ defmodule TechChallengeTradesquashWeb.PostController do
     post =
       id
       |> Posts.get_post!()
-      |> Repo.preload([:comments, :author])
+      |> Repo.preload([:comments, :account])
 
     changeset = Comment.changeset(%Comment{}, %{})
     render(conn, "show.html", post: post, changeset: changeset)

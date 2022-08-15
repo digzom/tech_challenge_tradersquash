@@ -1,6 +1,6 @@
 defmodule TechChallengeTradesquash.Post.Create do
   @moduledoc false
-  alias TechChallengeTradesquash.{Repo, Post}
+  alias TechChallengeTradesquash.{Repo, Posts.Post}
 
   def call(post) do
     post

@@ -19,7 +19,7 @@ defmodule TechChallengeTradesquash.MixProject do
   def application do
     [
       mod: {TechChallengeTradesquash.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth_identity]
     ]
   end
 
@@ -52,7 +52,10 @@ defmodule TechChallengeTradesquash.MixProject do
       {:argon2_elixir, "~> 3.0"},
       {:earmark, "~> 1.4"},
       {:html_sanitize_ex, "~> 1.4"},
-      {:guardian, "~> 2.2"}
+      {:guardian, "~> 2.2"},
+      {:ueberauth, "~> 0.7"},
+      {:ueberauth_identity, "~> 0.3"},
+      {:wallaby, "~> 0.30.0", [runtime: false, only: :test]}
     ]
   end
 

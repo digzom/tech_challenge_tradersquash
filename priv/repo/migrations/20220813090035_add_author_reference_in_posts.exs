@@ -4,7 +4,7 @@ defmodule TechChallengeTradesquash.Repo.Migrations.AddAuthorReferenceInPosts do
 
   def change do
     alter table(:posts, primary_key: false) do
-      add(:author_id, references(:authors, type: :uuid))
+      add(:account_id, references(:accounts))
     end
   end
 end

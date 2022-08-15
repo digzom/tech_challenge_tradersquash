@@ -63,9 +63,25 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Auth.Guardian,
+# config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Auth.Guardian,
+#   issuer: "tech_challenge_tradesquash",
+#   secret_key: "RzFwNTKptdQARQWA/Hgc57tN3ncZ6tlK985Zr3uMg8oTHRqjqFfxjuvq7G9to1DZ"
+
+config :ueberauth, Ueberauth,
+  providers: [
+    identity:
+      {Ueberauth.Strategy.Identity,
+       [
+         param_nesting: "account",
+         request_path: "/register",
+         callback_path: "/register",
+         callback_methods: ["POST"]
+       ]}
+  ]
+
+config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Authentication,
   issuer: "tech_challenge_tradesquash",
-  secret_key: "RzFwNTKptdQARQWA/Hgc57tN3ncZ6tlK985Zr3uMg8oTHRqjqFfxjuvq7G9to1DZ"
+  secret_key: System.get_env("GUARDIAN_SECRET_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

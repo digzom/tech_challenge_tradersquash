@@ -3,21 +3,22 @@ defmodule TechChallengeTradesquash.Posts.Post do
   use Ecto.Schema
   import Ecto.Changeset
   alias TechChallengeTradesquash.Comments.Comment
-  alias TechChallengeTradesquash.Authors.Author
+  alias TechChallengeTradesquash.Accounts.Account
 
   @primary_key {:id, :id, autogenerate: true}
-  @foreign_key_type Ecto.UUID
+  # @foreign_key_type Ecto.UUID
 
-  @fields [:title, :body, :category, :slug, :author_id]
-  @required_fields [:title, :body, :category]
+  @fields [:title, :body, :category, :slug, :account_id, :anon]
+  @required_fields [:title, :body, :category, :anon]
 
   schema "posts" do
     field :body, :string
     field :title, :string
     field :category, :string
     field :slug, :string
+    field :anon, :boolean, virtual: true
     has_many :comments, Comment
-    belongs_to :author, Author
+    belongs_to :account, Account
 
     timestamps()
   end

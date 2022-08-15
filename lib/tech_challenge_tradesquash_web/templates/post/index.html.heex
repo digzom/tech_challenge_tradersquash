@@ -1,7 +1,14 @@
 <div class="bg-gray-50 -mt-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mx-auto sm:py-24 lg:max-w-none">
-      <h2 class="text-2xl font-bold text-gray-900">Posts</h2>
+      <div class="flex justify-between">
+        <h2 class="text-2xl font-bold text-gray-900">Posts</h2>
+        <%= link(
+          "Log Out",
+          to: Routes.session_path(@conn, :delete),
+          method: :delete
+        ) %>
+      </div>
       <div class="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-10">
         <div class="group relative py-3">
           <%= link to: Routes.post_path(@conn, :new) do %>
@@ -34,13 +41,13 @@
             <p class="text-lg font-semibold text-gray-900">
               <%= post.title %>
             </p>
-            <%= if post.author === nil do %>
+            <%= if post.account === nil do %>
               <p class="text-sm text-gray-400">
                 Anonymous
               </p>
             <% else %>
               <p class="text-sm text-gray-400">
-                <%= post.author.name %>
+                <%= post.account.name %>
               </p>
             <% end %>
           </div>
