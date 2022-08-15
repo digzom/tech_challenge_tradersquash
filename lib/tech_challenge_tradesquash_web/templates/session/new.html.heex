@@ -1,28 +1,54 @@
-<div class="row">
-  <div class="column column-50 column-offset-25">
-    <h1>Log In</h1>
-    <%= form_for @changeset, @action, [as: :account], fn f -> %>
-      <%= label(f, :email, "Email address") %>
-      <%= email_input(f, :email) %>
-      <%= error_tag(f, :email) %>
+<div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto w-96" src="https://i.ibb.co/3FP6zzd/cover.png" alt="Workflow" />
+    </div>
+    <div class="row">
+      <div class="column column-50 column-offset-25">
+        <%= form_for @changeset, @action, [as: :account, class: "mt-8 space-y-6"], fn f -> %>
+          <input type="hidden" name="remember" value="true" />
+          <div class="rounded-md shadow-sm -space-y-px">
+            <div>
+              <%= label(f, :email, "Email address", class: "sr-only") %>
+              <%= email_input(f, :email,
+                type: "email",
+                autocomplete: "email",
+                required: true,
+                placeholder: "Email address",
+                class:
+                  "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              ) %>
+              <%= error_tag(f, :email) %>
+            </div>
+            <div>
+              <%= label(f, :password, "Password", class: "sr-only") %>
+              <%= password_input(f, :password,
+                required: true,
+                placeholder: "Password",
+                class:
+                  "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+              ) %>
+              <%= error_tag(f, :password) %>
+            </div>
+          </div>
 
-      <%= label(f, :password, "Password") %>
-      <%= password_input(f, :password) %>
-      <%= error_tag(f, :password) %>
+          <div>
+            <%= submit("Log In",
+              children: "llll",
+              class:
+                "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            ) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
-      <%= submit("Log In", class: "button button-primary") %>
-    <% end %>
-  </div>
-</div>
-<div class="row">
-  <div class="column column-50 column-offset-25">
-    <p>
-      Need an account? <%= link("Register here", to: Routes.registration_path(@conn, :new)) %>
-    </p>
-  </div>
-</div>
-<div class="row">
-  <div class="column column-50 column-offset-25">
-    <%= render(TechChallengeTradesquashWeb.SessionView, "social_links.html", assigns) %>
+    <div class="mx-auto text-center">
+      <%= link to: Routes.registration_path(@conn, :new) do %>
+        <p class="text-gray-500 text-sm">
+          Don't have account? <strong class="text-indigo-500">Sign up</strong>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -34,13 +34,13 @@
             <p class="text-lg font-semibold text-gray-900">
               <%= post.title %>
             </p>
-            <%= if post.author === nil do %>
+            <%= if post.account === nil do %>
               <p class="text-sm text-gray-400">
                 Anonymous
               </p>
             <% else %>
               <p class="text-sm text-gray-400">
-                <%= post.author.name %>
+                <%= post.account.name %>
               </p>
             <% end %>
           </div>

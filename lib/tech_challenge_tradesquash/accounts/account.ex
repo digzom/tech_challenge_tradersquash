@@ -4,6 +4,7 @@ defmodule TechChallengeTradesquash.Accounts.Account do
   import Ecto.Changeset
 
   schema "accounts" do
+    field :name, :string
     field :email, :string
     field :password, :string, virtual: true
     field :encrypted_password, :string
@@ -14,8 +15,8 @@ defmodule TechChallengeTradesquash.Accounts.Account do
   @doc false
   def changeset(struct, params) do
     struct
-    |> cast(params, [:email, :password])
-    |> validate_required([:email, :password])
+    |> cast(params, [:name, :email, :password])
+    |> validate_required([:name, :email, :password])
     |> validate_confirmation(:password, required: true)
     |> unique_constraint(:email)
     |> put_encrypted_password()

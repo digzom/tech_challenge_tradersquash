@@ -9,7 +9,7 @@ defmodule TechChallengeTradesquashWeb.RegistrationController do
       {:ok, account} ->
         conn
         |> Authentication.log_in(account)
-        |> redirect(to: Routes.profile_path(conn, :show))
+        |> redirect(to: Routes.post_path(conn, :index))
 
       {:error, changeset} ->
         render(conn, :new,
@@ -21,7 +21,7 @@ defmodule TechChallengeTradesquashWeb.RegistrationController do
 
   def new(conn, _) do
     if Authentication.get_current_account(conn) do
-      redirect(conn, to: Routes.profile_path(conn, :show))
+      redirect(conn, to: Routes.post_path(conn, :show))
     else
       render(
         conn,

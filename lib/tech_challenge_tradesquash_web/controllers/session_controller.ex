@@ -5,7 +5,7 @@ defmodule TechChallengeTradesquashWeb.SessionController do
 
   def new(conn, _params) do
     if Authentication.get_current_account(conn) do
-      redirect(conn, to: Routes.profile_path(conn, :show))
+      redirect(conn, to: Routes.post_path(conn, :index))
     else
       render(
         conn,
@@ -21,7 +21,7 @@ defmodule TechChallengeTradesquashWeb.SessionController do
       {:ok, account} ->
         conn
         |> Authentication.log_in(account)
-        |> redirect(to: Routes.profile_path(conn, :show))
+        |> redirect(to: Routes.post_path(conn, :index))
 
       {:error, :invalid_credentials} ->
         conn

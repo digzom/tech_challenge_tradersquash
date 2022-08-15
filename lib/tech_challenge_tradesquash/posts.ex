@@ -10,10 +10,11 @@ defmodule TechChallengeTradesquash.Posts do
     Repo.all(Post)
   end
 
-  def get_post!(id), do: Repo.get!(Post, id) |> Repo.preload([:author])
+  def get_post!(id), do: Repo.get!(Post, id) |> Repo.preload([:account])
 
-  def create_post(attrs \\ %{}) do
+  def create_post(attrs \\ %{}, id) do
     %Post{}
+    |> Map.replace(:account_id, id)
     |> Post.changeset(attrs)
     |> Repo.insert()
   end
