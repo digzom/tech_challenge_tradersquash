@@ -2,7 +2,6 @@ defmodule TechChallengeTradesquash.Authors.Author do
   @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
-  alias TechChallengeTradesquash.Posts.Post
 
   @fields [:name, :email, :password, :password_hash]
   @required_fields [:name, :email, :password]
@@ -13,7 +12,6 @@ defmodule TechChallengeTradesquash.Authors.Author do
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
-    has_many :posts, Post
 
     timestamps()
   end

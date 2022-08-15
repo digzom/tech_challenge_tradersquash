@@ -15,8 +15,17 @@ defmodule TechChallengeTradesquash.Posts do
   def create_post(attrs \\ %{}, id) do
     %Post{}
     |> Map.replace(:account_id, id)
+    |> check_if_anon_is_marked(attrs)
     |> Post.changeset(attrs)
     |> Repo.insert()
+  end
+
+  defp check_if_anon_is_marked(changeset, %{"anon" => "true"}) do
+    Map.replace(changeset, :account_id, nil)
+  end
+
+  defp check_if_anon_is_marked(changeset, _attrs) do
+    changeset
   end
 
   def update_post(%Post{} = post, attrs) do

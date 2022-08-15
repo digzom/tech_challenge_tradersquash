@@ -8,14 +8,15 @@ defmodule TechChallengeTradesquash.Posts.Post do
   @primary_key {:id, :id, autogenerate: true}
   # @foreign_key_type Ecto.UUID
 
-  @fields [:title, :body, :category, :slug, :account_id]
-  @required_fields [:title, :body, :category, :account_id]
+  @fields [:title, :body, :category, :slug, :account_id, :anon]
+  @required_fields [:title, :body, :category, :anon]
 
   schema "posts" do
     field :body, :string
     field :title, :string
     field :category, :string
     field :slug, :string
+    field :anon, :boolean, virtual: true
     has_many :comments, Comment
     belongs_to :account, Account
 
