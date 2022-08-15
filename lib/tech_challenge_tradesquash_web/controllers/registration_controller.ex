@@ -20,9 +20,15 @@ defmodule TechChallengeTradesquashWeb.RegistrationController do
   end
 
   def new(conn, _) do
-    render(conn, :new,
-      changeset: Accounts.change_account(),
-      action: Routes.registration_path(conn, :create)
-    )
+    if Authentication.get_current_account(conn) do
+      redirect(conn, to: Routes.profile_path(conn, :show))
+    else
+      render(
+        conn,
+        :new,
+        changeset: Accounts.change_account(),
+        action: Routes.registration_path(conn, :create)
+      )
+    end
   end
 end

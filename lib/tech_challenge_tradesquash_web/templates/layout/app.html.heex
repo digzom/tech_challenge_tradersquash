@@ -1,5 +1,28 @@
 <main>
   <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
   <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+  <header>
+    <section class="container">
+      <%= if @conn.assigns[:current_account] do %>
+        <nav class="navigation" role="navigation">
+          <section class="container">
+            <a href="#" class="navigation-title" title="SquashBlog">SquashBlog</a>
+            <ul class="navigation-list float-right">
+              <li class="navigation-item">
+                <%= @current_account.email %>
+              </li>
+              <li class="navigation-item">
+                <%= link(
+                  "Log Out",
+                  to: Routes.session_path(@conn, :delete),
+                  method: :delete
+                ) %>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      <% end %>
+    </section>
+  </header>
   <%= @inner_content %>
 </main>

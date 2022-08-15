@@ -23,6 +23,6 @@ defmodule TechChallengeTradesquash.Accounts do
   end
 
   def get_by_email(email) do
-    Repo.get_by!(Account, email: email)
+    Repo.get_by(Account, email: email)
   end
 end

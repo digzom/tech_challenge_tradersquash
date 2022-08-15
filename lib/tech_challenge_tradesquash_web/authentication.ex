@@ -18,6 +18,10 @@ defmodule TechChallengeTradesquashWeb.Authentication do
     __MODULE__.Plug.sign_in(conn, account)
   end
 
+  def log_out(conn) do
+    __MODULE__.Plug.sign_out(conn)
+  end
+
   def get_current_account(conn) do
     __MODULE__.Plug.current_resource(conn)
   end

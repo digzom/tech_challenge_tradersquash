@@ -32,6 +32,8 @@ defmodule TechChallengeTradesquashWeb.Router do
     resources "/posts", PostController do
       post "/comment", PostController, :add_comment
     end
+
+    delete "/logout", SessionController, :delete
   end
 
   scope "/", TechChallengeTradesquashWeb do
