@@ -19,8 +19,12 @@ defmodule TechChallengeTradesquashWeb.Router do
     pipe_through :browser
 
     get "/", HomeController, :index
-    get "/login", LoginController, :index
-    get "/admin", AdminController, :index
+    get "/author", AuthorController, :index
+
+    get "/register", AuthorController, :new
+    post "/register", AuthorController, :create
+
+    resources "/register", AuthorController
 
     resources "/posts", PostController do
       post "/comment", PostController, :add_comment

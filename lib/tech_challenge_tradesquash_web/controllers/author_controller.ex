@@ -4,6 +4,8 @@ defmodule TechChallengeTradesquashWeb.AuthorController do
   alias TechChallengeTradesquash.{Repo, Authors}
   alias TechChallengeTradesquash.Authors.Author
   alias TechChallengeTradesquash.Comments.Comment
+  # alias TechChallengeTradesquashWeb.Auth.Guardian
+  # alias TechChallengeTradesquash.Posts
 
   def index(conn, _params) do
     authors = Authors.list_authors()
@@ -13,15 +15,15 @@ defmodule TechChallengeTradesquashWeb.AuthorController do
 
   def new(conn, _params) do
     changeset = Authors.change_author(%Author{})
+    IO.inspect(changeset)
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"author" => author_params}) do
-    with {:ok, trainer} <- Authors.create_author(author_params),
-         {:ok, token, _claims} <- Guardian.encode_and_sign(trainer) do
+    with {:ok, author} <- Authors.create_author(author_params) do
       conn
       |> put_flash(:info, "You have been registered.")
-      |> render("index.html", token)
+      |> render("index.html", author)
     end
   end
 
@@ -47,7 +49,7 @@ defmodule TechChallengeTradesquashWeb.AuthorController do
     case Authors.update_author(author, author_params) do
       {:ok, _} ->
         conn
-        |> put_flash(:info, "Post updated successfully.")
+        |> put_flash(:info, "Author updated successfully.")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         changeset
