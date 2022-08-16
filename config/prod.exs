@@ -13,7 +13,7 @@ config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
   load_from_system_env: true,
   http: [port: {:system, "PORT"}],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443]
+  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
