@@ -22,9 +22,9 @@ defmodule TechChallengeTradesquashWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: "/priv/assets",
+    from: "priv/assets",
     gzip: true,
-    only: ~w(assets fonts css images favicon.ico robots.txt)
+    only: ~w(assets css fonts images favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
