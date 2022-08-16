@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "deploy": "cd .. && mix assets.deploy && rm -f _build/esbuild"
+    "build": "node esbuild.js",
+    "deploy": "node esbuild.js --deploy",
+    "watch": "node esbuild.js --watch"
   },
   "dependencies": {
     "alpinejs": "^3.10.3",
