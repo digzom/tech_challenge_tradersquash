@@ -9,6 +9,5 @@ defmodule TechChallengeTradesquashWeb.Authentication.ErrorHandler do
     conn
     |> put_flash(:error, "Authentication error.")
     |> redirect(to: Routes.session_path(conn, :new))
-    |> halt()
   end
 end

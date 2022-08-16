@@ -39,7 +39,7 @@ defmodule TechChallengeTradesquashWeb.Router do
   scope "/", TechChallengeTradesquashWeb do
     pipe_through [:browser]
 
-    get "/", RegistrationController, :index
+    get "/", HomeController, :index
     get "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
 
