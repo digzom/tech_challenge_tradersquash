@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "node esbuild.js",
-    "deploy": "cd .. && mix assets.deploy && rm -f _build/esbuild",
+    "deploy": "node esbuild.js --deploy",
     "watch": "node esbuild.js --watch"
   },
   "dependencies": {
