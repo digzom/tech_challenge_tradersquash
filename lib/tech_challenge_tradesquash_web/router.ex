@@ -37,8 +37,9 @@ defmodule TechChallengeTradesquashWeb.Router do
   end
 
   scope "/", TechChallengeTradesquashWeb do
-    pipe_through [:browser, :guardian]
+    pipe_through [:browser]
 
+    get "/", RegistrationController, :index
     get "/register", RegistrationController, :new
     post "/register", RegistrationController, :create
 
