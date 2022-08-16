@@ -73,7 +73,7 @@ defmodule TechChallengeTradesquash.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": [
         "tailwind default --minify",
-        "cmd npm --prefix assets run deploy",
+        "cmd --cd assets node build.js --deploy",
         "phx.digest"
       ]
     ]
