@@ -22,7 +22,7 @@ defmodule TechChallengeTradesquashWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: "priv/assets",
+    from: :tech_challenge_tradesquash,
     gzip: true,
     only: ~w(assets css fonts images favicon.ico robots.txt)
 
