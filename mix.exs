@@ -54,8 +54,7 @@ defmodule TechChallengeTradesquash.MixProject do
       {:html_sanitize_ex, "~> 1.4"},
       {:guardian, "~> 2.2"},
       {:ueberauth, "~> 0.7"},
-      {:ueberauth_identity, "~> 0.3"},
-      {:wallaby, "~> 0.30.0", [runtime: false, only: :test]}
+      {:ueberauth_identity, "~> 0.3"}
     ]
   end
 

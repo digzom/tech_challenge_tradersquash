@@ -35,9 +35,13 @@
                 />
               <% end %>
             </div>
-            <h3 class="mt-3 text-xs text-blue-500 uppercase">
-              <%= post.category %>
-            </h3>
+            <div class="flex">
+              <%= for category_item <- post.category do %>
+                <h3 class="mt-3 text-xs text-blue-500 px-4 uppercase">
+                  <%= category_item %>
+                </h3>
+              <% end %>
+            </div>
             <p class="text-lg font-semibold text-gray-900">
               <%= post.title %>
             </p>

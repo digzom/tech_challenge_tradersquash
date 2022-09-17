@@ -2,8 +2,15 @@
   <div class="border-solid">
     <%= for comment <- @comments do %>
       <div class="bg-white p-5 border-b-2 border-l-4 border-l-indigo-300 mb-4 rounded-md">
-        <p class="text-sm font-semibold"><%= comment.name %></p>
-        <p class="text-xs text-gray-500"><%= format_date(comment.inserted_at) %></p>
+        <%= if comment.name === nil do %>
+          <p class="text-base font-semibold">Anônimo</p>
+          <p class="text-xs text-gray-500"><%= format_date(comment.inserted_at) %></p>
+        <% else %>
+          <div>
+            <p class="text-sm font-semibold"><%= comment.name %></p>
+            <p class="text-xs text-gray-500"><%= format_date(comment.inserted_at) %></p>
+          </div>
+        <% end %>
         <br />
         <div class="prose prose-h1:text-xl prose-h2:text-lg prose-h3:font-bold text-sm">
           <%= html_view(comment.content) %>

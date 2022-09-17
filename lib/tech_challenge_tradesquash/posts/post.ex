@@ -14,7 +14,7 @@ defmodule TechChallengeTradesquash.Posts.Post do
   schema "posts" do
     field :body, :string
     field :title, :string
-    field :category, :string
+    field :category, {:array, :string}
     field :slug, :string
     field :anon, :boolean, virtual: true
     has_many :comments, Comment
@@ -26,6 +26,7 @@ defmodule TechChallengeTradesquash.Posts.Post do
   def build(params) do
     params
     |> changeset()
+    |> IO.inspect()
     |> apply_action(:insert)
   end
 

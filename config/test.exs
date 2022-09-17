@@ -22,10 +22,6 @@ config :tech_challenge_tradesquash, TechChallengeTradesquashWeb.Endpoint,
 
 config :tech_challenge_tradesquash, :sql_sandbox, true
 
-config :wallaby,
-  chromedriver: [
-    headless: false
-  ]
 
 # In test we don't send emails.
 config :tech_challenge_tradesquash, TechChallengeTradesquash.Mailer, adapter: Swoosh.Adapters.Test
