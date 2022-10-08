@@ -1,4 +1,4 @@
-# Phoenix 1.6 Full-Stack Template
+# Tech Challenge Tradersquash
 
 To start your Phoenix server:
 
